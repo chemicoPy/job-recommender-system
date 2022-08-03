@@ -12,8 +12,7 @@ from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer
-
-
+nltk.download('omw-1.4')
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
