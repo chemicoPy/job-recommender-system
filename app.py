@@ -1,16 +1,7 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
 
 import streamlit as st
+import numpy as np
+import pandas as pd
 
 df = pd.read_csv("./clean_data.csv")
 
