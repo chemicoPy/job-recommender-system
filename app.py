@@ -24,7 +24,7 @@ import streamlit as st
 
 
 
-my_data = pd.read_csv("./clean_data.csv")
+df = pd.read_csv("./clean_data.csv")
 
 # disable warnings
 st.set_option('deprecation.showPyplotGlobalUse', False)
