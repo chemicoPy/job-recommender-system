@@ -39,9 +39,9 @@ st.sidebar.markdown(
     This is an Job recommendation web app that can recommend 10 top jobs to user upon entering a specific job/role.    
     """)
 
-    st.sidebar.header("")  # initialize empty space
+st.sidebar.header("")  # initialize empty space
 
-    st.sidebar.markdown(
+st.sidebar.markdown(
     """
     ----------
     ## You can either select:
