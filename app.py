@@ -54,10 +54,10 @@ model_select = st.selectbox(
 if st.button("convert"):
     
     if model_select == "TF-IDF":
-        st.dataframe(df.style.highlight_max(axis=0))
+        st.write(df)
         
     elif model_select == "Count Vectorizer":
-        st.dataframe(df.style.highlight_max(axis=0))
+        st.write(df)
 
     
 
