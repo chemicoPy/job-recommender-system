@@ -3,8 +3,6 @@ import numpy as np
 import nltk
 #nltk.download()
 import matplotlib.pyplot as plt
-#import seaborn as sns
-%matplotlib inline
 from nltk.corpus import stopwords
 import re
 import string
