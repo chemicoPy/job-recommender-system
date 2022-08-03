@@ -56,7 +56,7 @@ if st.button("convert"):
     if model_select == "TF-IDF":
         st.dataframe(df.style.highlight_max(axis=0))
         
-    elif in_lang == "Count Vectorizer":
+    elif model_select == "Count Vectorizer":
         st.dataframe(df.style.highlight_max(axis=0))
 
     
