@@ -37,7 +37,7 @@ st.sidebar.markdown(
     ----------
     ## You can either select:
     1. TF-IDF
-    2. Count Vectorize
+    2. Count Vectorizer
      
     """)
 
