@@ -47,7 +47,7 @@ st.sidebar.markdown(
             """
      ----------
     ## Project Overview
-    This is a Job recommendation web app that that uses filtering techniques and Natural Language Processing (NLP)
+    This is a Job recommendation web app that uses filtering techniques and Natural Language Processing (NLP)
     to suggest 10 top jobs to user upon entering a specific job/role (and probably other preferences).
     """)
 
