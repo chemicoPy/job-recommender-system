@@ -47,7 +47,8 @@ st.sidebar.markdown(
             """
      ----------
     ## Project Overview
-    This is an Job recommendation web app that can recommend 10 top jobs to user upon entering a specific job/role.    
+    This is a Job recommendation web app that that uses filtering techniques and Natural Language Processing (NLP)
+    to suggest 10 top jobs to user upon entering a specific job/role (and probably other preferences).
     """)
 
 st.sidebar.header("")  # initialize empty space
@@ -59,6 +60,14 @@ st.sidebar.markdown(
     1. TF-IDF
     2. Count Vectorizer
      
+    """)
+
+st.sidebar.header("")  # initialize empty space
+
+"""
+    ----------
+    ## NOTE:
+    If the Job/your preferences could not be matched with the available jobs, the full job data will be returned with their scores all labeled as "0.0"     
     """)
 
 user_input = st.text_input("Enter any job you want recommendation(s) on")
@@ -148,7 +157,7 @@ count_vec_recommendation = get_recommendation(top10_count_vec_count, data, list_
     
 def main():
     
-    if st.button("convert"):
+    if st.button("Recommend Jobs"):
         if model_select == "TF-IDF":
             st.write(tfidf_recommendation)
             
