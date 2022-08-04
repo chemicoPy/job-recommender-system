@@ -64,11 +64,15 @@ st.sidebar.markdown(
 
 st.sidebar.header("")  # initialize empty space
 
+st.sidebar.markdown(
+            
 """
     ----------
     ## NOTE:
-    If the Job/your preferences could not be matched with the available jobs, the full job data will be returned with their scores all labeled as "0.0"     
+    If the Job/your preferences could not be matched with the available jobs, the full job data will be returned with their scores all labeled as "0.0" 
+    
     """)
+
 
 user_input = st.text_input("Enter any job you want recommendation(s) on")
 from_user = pd.DataFrame(data=[user_input], columns = ["Text"])
