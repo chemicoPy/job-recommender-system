@@ -30,9 +30,9 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
 st.title('Job Recommender System')
+st.subheader("Navigate to side bar to see project info")
 st.subheader("See below for options")
 
-# re-configuring page layout to restrict users from overwriting the app configuraion
 
 hide_streamlit_style = '''
             <style>
@@ -59,7 +59,6 @@ st.sidebar.markdown(
     ## You can either select:
     1. TF-IDF
     2. Count Vectorizer
-     
     """)
 
 st.sidebar.header("")  # initialize empty space
@@ -69,8 +68,7 @@ st.sidebar.markdown(
 """
     ----------
     ## NOTE:
-    If the Job/your preferences could not be matched with the available jobs, the full job data will be returned with their scores all labeled as "0.0" 
-    
+    If the Job/your preferences could not be matched with the available jobs, the overview of job data will be returned with their scores all labeled as "0.0" 
     """)
 
 
@@ -172,6 +170,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
 
