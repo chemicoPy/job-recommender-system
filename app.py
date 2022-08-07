@@ -84,7 +84,7 @@ df.fillna("", inplace = True)
 df['Text'] = df['Job title'].map(str) + ' ' + df['Salary'] + ' ' + df['Date'] + ' ' + df['Company Location'] + ' ' + df['Company Name'] + ' ' + df['city']+ ' ' + df['state']
 #df.head(10)
 
-data = df[['Unnamed: 0', 'Text', 'Job title']]
+data = df[['Unnamed: 0', 'Text', 'Job title','Company Name']]
 data = data.fillna(' ')
 data.rename(columns={'Unnamed: 0':"Job.ID"}, inplace = True)
 
@@ -120,12 +120,13 @@ cos_sim_tfidf = map(lambda x: cosine_similarity(user_tfidf, x), tfidf_comb)
 rec1 = list(cos_sim_tfidf)
 
 def get_recommendation(top, the_data, scores):
-  recommendation = pd.DataFrame(columns = ['Job_ID',  'Job title', 'Prediction Accuracy'], dtype=object)
+  recommendation = pd.DataFrame(columns = ['Job_ID',  'Job title', 'Company Name', 'Accuracy'], dtype=object)
   count = 0
   for i in top:
       recommendation.at[count, 'Job_ID'] = the_data['Job.ID'][i]
       recommendation.at[count, 'Job title'] = the_data['Job title'][i]
-      recommendation.at[count, 'Prediction Accuracy'] =  scores[count]
+      recommendation.at[count, 'Company Name'] = the_data['Company Name'][i]
+      recommendation.at[count, 'Accuracy'] =  scores[count]
       count += 1
   return recommendation
 
@@ -134,7 +135,7 @@ def get_recommendation(top, the_data, scores):
 top10_tfidf = sorted(range(len(rec1)), key = lambda i: rec1[i], reverse = True)[:10]  
 list_scores_tfidf = [rec1[i][0][0] for i in top10_tfidf]
 tfidf_recommendation = get_recommendation(top10_tfidf, data, list_scores_tfidf)     #Recommendation with TF-IDF
-#tfidf_recommendation["Prediction Accuracy"] = np.round(tfidf_recommendation["Prediction Accuracy"], decimals = 2)
+#tfidf_recommendation["Accuracy"] = np.round(tfidf_recommendation["Accuracy"], decimals = 2)
    
             
 # Another vectorizing method that could be of interest is using Count Vectorizer
