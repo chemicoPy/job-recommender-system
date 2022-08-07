@@ -159,8 +159,7 @@ count_vec_recommendation = get_recommendation(top10_count_vec_count, data, list_
 def main():
     
     if st.button("Recommend Jobs"):
-        if model_select == "TF-IDF":
-            st.write(tfidf_recommendation)
+        st.write(tfidf_recommendation)
 
             
 if __name__ == '__main__':
