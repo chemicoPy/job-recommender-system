@@ -56,9 +56,7 @@ st.sidebar.header("")  # initialize empty space
 st.sidebar.markdown(
     """
     ----------
-    ## You can either select:
-    1. TF-IDF
-    2. Count Vectorizer
+    ## Text data conversion model is "TF-IDF" (converts text data to vectors as model can only process numerical data; it weights the word counts by measure of how often they appear in the dataset)
     """)
 
 st.sidebar.header("")  # initialize empty space
@@ -77,10 +75,9 @@ from_user = pd.DataFrame(data=[user_input], columns = ["Text"])
 from_user.index=range(len(from_user.index))
 
 model_select = st.selectbox(
-            "Select a model you'd like to work with",
+            "Vectorizing method",
             (
-                "TF-IDF",
-                "Count Vectorizer"
+                "TF-IDF"
             ),
         )
 
@@ -127,12 +124,12 @@ cos_sim_tfidf = map(lambda x: cosine_similarity(user_tfidf, x), tfidf_comb)
 rec1 = list(cos_sim_tfidf)
 
 def get_recommendation(top, the_data, scores):
-  recommendation = pd.DataFrame(columns = ['Job_ID',  'Job title', 'Score'], dtype=object)
+  recommendation = pd.DataFrame(columns = ['Job_ID',  'Job title', 'Prediction Accuracy'], dtype=object)
   count = 0
   for i in top:
       recommendation.at[count, 'Job_ID'] = the_data['Job.ID'][i]
       recommendation.at[count, 'Job title'] = the_data['Job title'][i]
-      recommendation.at[count, 'Score'] =  scores[count]
+      recommendation.at[count, 'Prediction Accuracy'] =  scores[count]
       count += 1
   return recommendation
 
@@ -140,10 +137,10 @@ def get_recommendation(top, the_data, scores):
 
 top10_tfidf = sorted(range(len(rec1)), key = lambda i: rec1[i], reverse = True)[:10]  
 list_scores_tfidf = [rec1[i][0][0] for i in top10_tfidf]
-tfidf_recommendation = get_recommendation(top10_tfidf, data, list_scores_tfidf)     #Recommendation with TD-IDF
-    
+tfidf_recommendation = get_recommendation(top10_tfidf, data, list_scores_tfidf)     #Recommendation with TF-IDF
+tfidf_recommendation["Prediction Accuracy"].round(decimals = 2)
    
-#Using Count Vectorizer for recommendation
+# Another vectorizing method that could be of interest is using Count Vectorizer
 
 count_vect = CountVectorizer()
 
@@ -154,7 +151,7 @@ cos_sim_count_countvec = map(lambda x: cosine_similarity(user_count_countvec, x)
 count_vec1 = list(cos_sim_count_countvec)   
 top10_count_vec_count = sorted(range(len(count_vec1)), key = lambda i: count_vec1[i], reverse = True)[:10]
 list_scores_vec_count = [count_vec1[i][0][0] for i in top10_count_vec_count]
-count_vec_recommendation = get_recommendation(top10_count_vec_count, data, list_scores_vec_count)   #Recommendation with count_vec_recommendation
+count_vec_recommendation = get_recommendation(top10_count_vec_count, data, list_scores_vec_count)   #Recommendation with count vectorizer
      
     
 def main():
@@ -162,12 +159,8 @@ def main():
     if st.button("Recommend Jobs"):
         if model_select == "TF-IDF":
             st.write(tfidf_recommendation)
+
             
-        elif model_select == "Count Vectorizer":
-            st.write(count_vec_recommendation)
-
-
-
 if __name__ == '__main__':
     main()
 
