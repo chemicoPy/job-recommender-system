@@ -56,7 +56,7 @@ st.sidebar.header("")  # initialize empty space
 st.sidebar.markdown(
     """
     ----------
-    ## Text data conversion model is "TF-IDF"
+    ## Text data conversion method is "TF-IDF"
     It converts text data to vectors as model can only process numerical data; it weights the word counts by measure of how often they appear in the dataset
     """)
 
@@ -139,7 +139,7 @@ def get_recommendation(top, the_data, scores):
 top10_tfidf = sorted(range(len(rec1)), key = lambda i: rec1[i], reverse = True)[:10]  
 list_scores_tfidf = [rec1[i][0][0] for i in top10_tfidf]
 tfidf_recommendation = get_recommendation(top10_tfidf, data, list_scores_tfidf)     #Recommendation with TF-IDF
-tfidf_recommendation["Prediction Accuracy"] = np.round(tfidf_recommendation["Prediction Accuracy"], decimals = 2)
+#tfidf_recommendation["Prediction Accuracy"] = np.round(tfidf_recommendation["Prediction Accuracy"], decimals = 2)
    
             
 # Another vectorizing method that could be of interest is using Count Vectorizer
