@@ -75,12 +75,7 @@ user_input = st.text_input("Enter any job you want recommendation(s) on")
 from_user = pd.DataFrame(data=[user_input], columns = ["Text"])
 from_user.index=range(len(from_user.index))
 
-model_select = st.selectbox(
-            "Vectorizing method",
-            (
-                "TF-IDF"
-            ),
-        )
+st.text("Vectorizing Method: TF-IDF")
 
 #Replace Nan values
 df.fillna("", inplace = True)
