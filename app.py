@@ -57,7 +57,7 @@ st.sidebar.markdown(
     """
     ----------
     ## Text data conversion method is "TF-IDF"
-    It converts text data to vectors as model can only process numerical data; it weights the word counts by measure of how often they appear in the dataset
+    Term Frequency - Inverse Document Frequency (TF-IDF) converts text data to vectors as model can only process numerical data; it weights the word counts by measure of how often they appear in the dataset
     """)
 
 st.sidebar.header("")  # initialize empty space
