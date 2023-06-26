@@ -131,6 +131,7 @@ def get_recommendation(top, the_data, scores):
 #Using TF-IDF for recommendation
 
 np.bool = np.bool_
+np.object = object
 
 top10_tfidf = sorted(range(len(rec1)), key = lambda i: rec1[i], reverse = True)[:10]  
 list_scores_tfidf = [rec1[i][0][0] for i in top10_tfidf]
