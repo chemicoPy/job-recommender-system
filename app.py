@@ -136,7 +136,7 @@ np.object = object
 top10_tfidf = sorted(range(len(rec1)), key = lambda i: rec1[i], reverse = True)[:10]  
 list_scores_tfidf = [rec1[i][0][0] for i in top10_tfidf]
 tfidf_recommendation = get_recommendation(top10_tfidf, data, list_scores_tfidf)     #Recommendation with TF-IDF
-tfidf_recommendation["Accuracy"] = tfidf_recommendation["Accuracy"]
+tfidf_recommendation["Accuracy"] = tfidf_recommendation["Accuracy"].astype(float)
 tfidf_recommendation.Accuracy = tfidf_recommendation.Accuracy.round(2)
    
             
