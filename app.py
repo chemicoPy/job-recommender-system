@@ -136,7 +136,7 @@ top10_tfidf = sorted(range(len(rec1)), key = lambda i: rec1[i], reverse = True)[
 list_scores_tfidf = [rec1[i][0][0] for i in top10_tfidf]
 tfidf_recommendation = get_recommendation(top10_tfidf, data, list_scores_tfidf)     #Recommendation with TF-IDF
 tfidf_recommendation["Accuracy"] = tfidf_recommendation["Accuracy"]
-tfidf_recommendation.Accuracy = tfidf_recommendation.Accuracy.round(2)
+tfidf_recommendation.Accuracy = tfidf_recommendation.Accuracy
    
             
 # Another vectorizing method that could be of interest is using Count Vectorizer
